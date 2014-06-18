@@ -1,19 +1,69 @@
-Title
+###Software Carpentry Final Assigment 06.17.14
 ========================================================
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+This is an R Markdown document constructed for the final assignment of the UC Davis Software Carpentry Bootcamp June 16-17, 2014.
 
-When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+####The Assignment
+#####Using an Rmd file (in R), create a short analysis report of the gapminder dataset.
+1. Move the data file [you can re-download it here](http://npk.io/BGRY+) into your working directory (the one you have been working with for git and github).
+2. Take a look at the file and pick three countries you are interested in.
+3. Write an Rmd script to load the data file, select all the data for that country (hint, use the subset() function), and use ggplot make a three scatter plots (one for each country) that has year on the x-axis and GDP on the y axis. Make sure you load all the libraries you might need (ggplot2, reshape2, etc). Describe any trends you see for each country using markdown text.
+4. Commit your changes using git. You can do this from the command line or in RStudio if you like.
+5. Calculate the mean, min, and max life expectancies for each continent (hint: you use aggregate() if you like). Describe what you see in the results using a markdown text.
+6. Commit your changes using git and push them to github.
+7. Make 2 histograms of global life expectancy using ggplot. One with the default bin widths and one with narrower bin widths (you can check in the pdf from yesterday's lesson for the syntax you might need to do this). Explain the differences and any interesting trends in markdown text.
+8. Commit your changes and push them to github.
+9. Compile the final Rmd file to html, make sure it looks ok, and then commit this html file as well (should be in your working directory) and push everything to github.
+
+####The Work Product
+#####Loading Datafile and Selecting All Data for Three Countries
+Here is an embeded R chunk that sets the working directory, loads required packages, reads in the relevant data file, and selects all the data for Norway, Sweden, and Switzerland, only, then naming the final dataset *dat.three*:
 
 ```{r}
-summary(cars)
-5+3
+setwd("/Users/SE/Desktop/SWC/data")
+require(reshape2)
+require(ggplot2)
+dat<-read.delim("gapminderDataFiveYear.txt")
+dat.three<-subset(dat, subset = country %in% c("Sweden","Switzerland","Norway"))
 ```
 
-You can also embed plots, for example:
+Although not part of the assignment, this embeded R chunk further limits the data to just those countries and variables that we're concerned with (ie, Year and GDP data for Norway, Sweden, and Switzerland) and names the final dataset *dat.three.refined*:
+
+```{r}
+dat.three.refined<-subset(dat, subset = country %in% c("Sweden","Switzerland","Norway"), select = c(country, year, gdpPercap))
+```
+
+#####Embed a Scatter Plot of the Year v GDP Data for the Three Selected Countries
+This is an embedded plot, showing three separate scatter plots (made using ggplot2) depicting Year versus GDP data for Norway, Sweden, and Switzerland.  This embeded section further saves the plots as a pdf file named *NorSweSwitYRvGDP*.
 
 ```{r fig.width=7, fig.height=6}
-plot(cars)
+myplot1<-ggplot(data=dat.three, aes(x=year, y=gdpPercap, color=country)) + geom_point() + facet_wrap(~country)
+myplot1
+ggsave(myplot1, filename="NorSweSwitYRvGDP.jpg")
 ```
 
-The mean of some numbers is `r mean(c(2,3,4))`.
+#####Describe Trends Seen in the Scatter Plot
+Trends that can be observed in the above plot include:
+1. Norway's GDP has increased by 5x between the 1950s and the 2000s (1952 and 2007, although not visible on this plot).
+2. Sweden's GDP has increased by roughly 2.5x between the 1950s and the 2000s.
+3. Switzerland's GDP, while roughly 50% greater than either Norway's or Sweden's in the 1950s, has *merely* doubled in the same amount of time.
+
+#####Calculate the Mean, Min, and Max Life Expectancies by Continent
+This embeded segment calculates the....
+
+```{r}
+STUFF
+```
+
+#####Desribe Results Observed in the Above Plot
+This....
+
+#####Embed Two Histograms of Global Life Expectancy (one with defaults and one with narrower bin widths)
+This....
+
+```{r}
+STUFF
+```
+
+#####Describe Differences in Above Histograms and Any Interesting Trends
+Stuff....
