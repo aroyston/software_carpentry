@@ -24,7 +24,6 @@ This is an R Markdown document written by Ashley Royston for the final assignmen
 Here is an embedded R chunk that sets the working directory, loads required packages, reads in the relevant data file, and selects all the data for Norway, Sweden, and Switzerland, only (script's message suppressed):
 
 ```{r, message=FALSE}
-setwd("/Users/SE/Desktop/SWC/data")
 require(reshape2)
 require(ggplot2)
 dat<-read.delim("gapminderDataFiveYear.txt")
