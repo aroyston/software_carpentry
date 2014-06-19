@@ -25,7 +25,6 @@ Here is an embedded R chunk that sets the working directory, loads required pack
 
 
 ```r
-setwd("/Users/SE/Desktop/SWC/data")
 require(reshape2)
 require(ggplot2)
 dat<-read.delim("gapminderDataFiveYear.txt")
@@ -50,7 +49,7 @@ Trends that can be observed in the above plot include: Norway's GDP has increase
 This embedded segment calculates and displays the mean, minimum, and maximum life expectancies by continent using Xtable (script's echo and message suppressed):
 
 <!-- html table generated in R 3.1.0 by xtable 1.7-3 package -->
-<!-- Thu Jun 19 10:04:46 2014 -->
+<!-- Thu Jun 19 11:08:56 2014 -->
 <TABLE style='border:0; border-top: 1px solid grey; border-bottom: 1px solid grey'>
 <TR> <TH> Continent </TH> <TH> Mean </TH> <TH> Minimum </TH> <TH> Maximum </TH>  </TR>
   <TR> <TD> Africa </TD> <TD align="right"> 48.87 </TD> <TD align="right"> 23.60 </TD> <TD align="right"> 76.44 </TD> </TR>
