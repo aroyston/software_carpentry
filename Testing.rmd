@@ -1,7 +1,6 @@
 Software Carpentry Final Assigment 06.17.14
 ========================================================
 
-
 This is an R Markdown document written by Ashley Royston for the final assignment of the UC Davis Software Carpentry Bootcamp June 16-17, 2014.
 
 
